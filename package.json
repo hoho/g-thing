@@ -1,0 +1,25 @@
+{
+    "name": "g-thing",
+    "version": "0.0.1",
+    "description": "Run Grunt or Gulp with one command",
+    "main": "index.js",
+    "directories": {
+        "bin": "bin"
+    },
+    "bin": {
+        "g": "bin/g"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hoho/g-thing.git"
+    },
+    "author": "Marat Abdullin <dakota@brokenpipe.ru>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hoho/g-thing/issues"
+    },
+    "dependencies": {
+        "colors": "~1.0.3"
+    },
+    "devDependencies": {}
+}

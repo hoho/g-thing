@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+'use strict';
+
+
+var g = require('../index.js');
+require('colors');
+
+if (g.checkGrunt()) {
+    runProcess('grunt');
+} else if (g.checkGulp()) {
+    runProcess('gulp');
+} else {
+    console.log('No `Gruntfile` or `gulpfile` found.'.red);
+    process.exit(1);
+}
+
+
+function runProcess(name) {
+    require('child_process').spawn(
+        name,
+        process.argv.slice(2),
+        {stdio: 'inherit', env: process.env}
+    ).on('close', function(code) {
+        process.exit(code);
+    });
+}
