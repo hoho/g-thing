@@ -1,6 +1,6 @@
 {
     "name": "g-thing",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Run Grunt or Gulp with one command",
     "main": "index.js",
     "directories": {
@@ -13,6 +13,11 @@
         "type": "git",
         "url": "git://github.com/hoho/g-thing.git"
     },
+    "keywords": [
+        "grunt",
+        "gulp",
+        "run"
+    ],
     "author": "Marat Abdullin <dakota@brokenpipe.ru>",
     "license": "MIT",
     "bugs": {
