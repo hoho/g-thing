@@ -17,7 +17,7 @@ regularly type `gulp` in Grunt projects and `grunt` in Gulp projects.
 
 ## Description
 
-This utility checks the current working directory for `Gruntfile.js` or
-`gulpfile.js` and runs the corresponding utility.
+This utility checks the current working directory for `Gruntfile` or
+`gulpfile` and runs the corresponding utility.
 
 Command line arguments will be passed too.
