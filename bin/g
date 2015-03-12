@@ -16,12 +16,34 @@ if (g.checkGrunt()) {
 }
 
 
-function runProcess(name) {
-    require('child_process').spawn(
-        name,
-        process.argv.slice(2),
-        {stdio: 'inherit', env: process.env}
-    ).on('close', function(code) {
-        process.exit(code);
-    });
+function runProcess(name, ext, exts) {
+    var runNext;
+
+    require('child_process')
+        .spawn(
+            name + (ext || ''),
+            process.argv.slice(2),
+            {stdio: 'inherit', env: process.env}
+        )
+        .on('close', function(code) {
+            if (runNext) {
+                runProcess(name, exts.shift(), exts);
+            } else {
+                if (code) {
+                    console.log(('Failed to run `' + name + '`(' + code +').').red);
+                }
+                process.exit(code);
+            }
+        })
+        .on('error', function(err) {
+            // Very ugly workaround for running on Windows
+            // https://github.com/joyent/node/issues/2318.
+            if (exts === undefined) {
+                exts = ['.cmd', '.bat'];
+            }
+
+            if (err.code === 'ENOENT' && exts.length) {
+                runNext = true;
+            }
+        });
 }

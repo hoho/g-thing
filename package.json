@@ -1,6 +1,6 @@
 {
     "name": "g-thing",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Run Grunt or Gulp with one command",
     "preferGlobal": true,
     "main": "index.js",
